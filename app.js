@@ -1,6 +1,6 @@
-const express = require('express');
-const authRoutes = require('./routes/authRoutes');
-const protectedRoutes = require('./routes/protectedRoutes');
+import express from 'express';
+import authRoutes from './routes/authRoutes.js';
+import protectedRoutes from './routes/protectedRoutes.js';
 
 const app = express();
 
@@ -21,6 +21,6 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-module.exports = app;
+export default app;
 
 

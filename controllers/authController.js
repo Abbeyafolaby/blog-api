@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 function createToken(user) {
   return jwt.sign(
@@ -61,6 +61,6 @@ async function login(req, res) {
   }
 }
 
-module.exports = { register, login };
+export { register, login };
 
 
