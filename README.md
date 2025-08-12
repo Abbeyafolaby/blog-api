@@ -1,6 +1,6 @@
 # Blog API
 
-A RESTful API for a modern blogging platform built with Node.js and Express.js.
+A RESTful API for a modern blogging platform built with Node.js, Express.js, MongoDB, and JWT.
 
 ## Description
 
@@ -46,7 +46,7 @@ This Blog API provides a robust backend solution for blogging platforms, offerin
 3. Create a `.env` file in the root directory:
    ```env
    PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/blogapi
+   MONGO_URI=mongodb://localhost:27017/blogapi
    JWT_SECRET=your_jwt_secret_here
    ```
 
@@ -59,13 +59,16 @@ This Blog API provides a robust backend solution for blogging platforms, offerin
 The API will be available at `http://localhost:3000`
 
 #### API Endpoints
-- `GET /api/posts` - Get all blog posts
-- `POST /api/posts` - Create a new blog post
-- `GET /api/posts/:id` - Get a specific blog post
-- `PUT /api/posts/:id` - Update a blog post
-- `DELETE /api/posts/:id` - Delete a blog post
 - `POST /api/auth/register` - Register a new user
 - `POST /api/auth/login` - User login
+- `GET /api/protected/me` - Example protected route (requires Bearer token)
+
+To be added as the project progresses:
+- `GET /api/posts` - Get all blog posts
+- `POST /api/posts` - Create a new blog post (protected)
+- `GET /api/posts/:id` - Get a specific blog post
+- `PUT /api/posts/:id` - Update a blog post (protected)
+- `DELETE /api/posts/:id` - Delete a blog post (protected)
 
 Full API documentation available at `/api/docs` when server is running.
 
