@@ -1,8 +1,4 @@
-/**
- * Authentication controller
- * Handles user registration and login functionality
- */
-
+/* eslint-disable no-undef */
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 

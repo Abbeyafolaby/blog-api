@@ -1,9 +1,3 @@
-/**
- * ESLint configuration file
- * Defines code quality rules and linting configuration for the project
- */
-
-// @ts-check
 import js from '@eslint/js';
 
 // Export ESLint configuration array

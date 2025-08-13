@@ -1,9 +1,4 @@
-/**
- * Server entry point and startup configuration
- * Handles environment setup, database connection, and server initialization
- */
-
-// Load environment variables from .env file
+/* eslint-disable no-undef */
 import 'dotenv/config';
 import app from './app.js';
 import { connectDatabase } from './config/db.js';

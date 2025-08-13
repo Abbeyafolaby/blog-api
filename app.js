@@ -1,8 +1,3 @@
-/**
- * Main Express application configuration and middleware setup
- * This file sets up the Express app, applies middleware, and defines routes
- */
-
 import express from 'express';
 import authRoutes from './routes/authRoutes.js';
 import protectedRoutes from './routes/protectedRoutes.js';

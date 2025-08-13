@@ -1,8 +1,3 @@
-/**
- * User model schema and methods
- * Defines user data structure, validation rules, and password handling
- */
-
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 

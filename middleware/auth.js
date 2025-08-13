@@ -1,8 +1,4 @@
-/**
- * Authentication middleware
- * Verifies JWT tokens and protects routes from unauthorized access
- */
-
+/* eslint-disable no-undef */
 import jwt from 'jsonwebtoken';
 
 /**

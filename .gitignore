@@ -4,6 +4,3 @@ npm-debug.log*
 dist/
 coverage/
 .DS_Store
-
-node_modules/
-.env

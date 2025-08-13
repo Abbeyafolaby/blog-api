@@ -1,8 +1,3 @@
-/**
- * Protected routes configuration
- * Defines endpoints that require valid JWT authentication
- */
-
 import express from 'express';
 import { authenticate } from '../middleware/auth.js';
 

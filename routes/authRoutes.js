@@ -1,8 +1,3 @@
-/**
- * Authentication routes configuration
- * Defines endpoints for user registration and login
- */
-
 import express from 'express';
 import { register, login } from '../controllers/authController.js';
 
