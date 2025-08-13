@@ -17,7 +17,7 @@ A comprehensive RESTful API for a blog platform with user authentication, posts,
 - **Framework**: Express.js 5.x
 - **Database**: MongoDB with Mongoose ODM
 - **Authentication**: JWT (JSON Web Tokens)
-- **Security**: Helmet, express-rate-limit, xss-clean
+- **Security**: Helmet, express-rate-limit, DOMPurify (XSS protection)
 - **Password Hashing**: bcrypt
 
 ## Installation

@@ -1,10 +1,30 @@
-import xss from 'xss-clean';
+import DOMPurify from 'isomorphic-dompurify';
 
 /**
  * Sanitize request body to prevent XSS attacks
  * Removes any potentially malicious HTML/JavaScript
  */
-export const sanitizeInput = xss();
+export const sanitizeInput = (req, res, next) => {
+  // Sanitize body
+  if (req.body) {
+    Object.keys(req.body).forEach(key => {
+      if (typeof req.body[key] === 'string') {
+        req.body[key] = DOMPurify.sanitize(req.body[key]);
+      }
+    });
+  }
+  
+  // Sanitize query parameters
+  if (req.query) {
+    Object.keys(req.query).forEach(key => {
+      if (typeof req.query[key] === 'string') {
+        req.query[key] = DOMPurify.sanitize(req.query[key]);
+      }
+    });
+  }
+  
+  next();
+};
 
 /**
  * Validate post data
