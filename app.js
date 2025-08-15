@@ -14,8 +14,10 @@ const app = express();
 // Security middleware
 app.use(helmet());
 
-// Rate limiting
-app.use(generalLimiter);
+// Rate limiting (disabled during tests)
+if (process.env.NODE_ENV !== 'test') {
+  app.use(generalLimiter);
+}
 
 // Apply middleware
 // Parse incoming JSON requests
@@ -30,8 +32,12 @@ app.get('/', (req, res) => {
 });
 
 // API route definitions
-// Authentication routes (register, login) - with stricter rate limiting
-app.use('/api/auth', authLimiter, authRoutes);
+// Authentication routes (register, login) - with stricter rate limiting (disabled during tests)
+if (process.env.NODE_ENV !== 'test') {
+  app.use('/api/auth', authLimiter, authRoutes);
+} else {
+  app.use('/api/auth', authRoutes);
+}
 
 // Post routes
 app.use('/api/posts', postRoutes);

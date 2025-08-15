@@ -66,6 +66,52 @@ export const validatePost = (req, res, next) => {
 };
 
 /**
+ * Validate post data for updates (partial allowed)
+ * - Only validates fields that are present in the request
+ */
+export const validatePostUpdate = (req, res, next) => {
+  const { title, content, tags, published } = req.body;
+  const errors = [];
+
+  // Validate title if provided
+  if (title !== undefined) {
+    if (!title || title.trim().length < 3) {
+      errors.push('Title must be at least 3 characters long');
+    }
+    if (title && title.length > 200) {
+      errors.push('Title cannot exceed 200 characters');
+    }
+  }
+
+  // Validate content if provided
+  if (content !== undefined) {
+    if (!content || content.trim().length < 10) {
+      errors.push('Content must be at least 10 characters long');
+    }
+  }
+
+  // Validate tags if provided
+  if (tags !== undefined && !Array.isArray(tags)) {
+    errors.push('Tags must be an array');
+  }
+
+  // Validate published if provided
+  if (published !== undefined && typeof published !== 'boolean') {
+    errors.push('Published must be a boolean');
+  }
+
+  if (errors.length > 0) {
+    return res.status(400).json({
+      success: false,
+      message: 'Validation failed',
+      errors
+    });
+  }
+
+  next();
+};
+
+/**
  * Validate comment data
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object

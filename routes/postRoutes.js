@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate } from '../middleware/auth.js';
-import { validatePost } from '../middleware/validation.js';
+import { validatePost, validatePostUpdate } from '../middleware/validation.js';
 import { postLimiter } from '../middleware/rateLimit.js';
 import {
   createPost,
@@ -18,7 +18,7 @@ router.get('/:id', getPost);
 
 // Protected routes (require authentication)
 router.post('/', authenticate, postLimiter, validatePost, createPost);
-router.put('/:id', authenticate, validatePost, updatePost);
+router.put('/:id', authenticate, validatePostUpdate, updatePost);
 router.delete('/:id', authenticate, deletePost);
 
 export default router;
