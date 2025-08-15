@@ -23,6 +23,23 @@ export default [
     // Files and directories to ignore during linting
     ignores: ['node_modules/**', 'coverage/**', 'dist/**', 'eslint.config.js'],
   },
+  // Jest test files: define Jest globals so linter recognizes them
+  {
+    files: ['tests/**/*.test.js', 'tests/*.test.js'],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeAll: 'readonly',
+        afterAll: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+        jest: 'readonly',
+      },
+    },
+  },
 ];
 
 

@@ -54,7 +54,7 @@ app.use((req, res) => {
 });
 
 // Global error handler
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   console.error(error.stack);
   res.status(500).json({ 
     message: 'Something went wrong!',

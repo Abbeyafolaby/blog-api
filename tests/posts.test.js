@@ -48,7 +48,6 @@ describe('Post routes', () => {
   it('prevents non-owner from updating/deleting', async () => {
     const owner = await User.create({ name: 'Owner', email: 'owner@example.com', password: 'password123', role: 'author' });
     const other = await User.create({ name: 'Other', email: 'other@example.com', password: 'password123', role: 'author' });
-    const ownerToken = generateToken({ id: owner._id.toString(), email: owner.email, role: owner.role, name: owner.name });
     const otherToken = generateToken({ id: other._id.toString(), email: other.email, role: other.role, name: other.name });
 
     const post = await Post.create({ title: 'Post Title', content: 'Long enough content', author: owner._id, tags: [], published: true });

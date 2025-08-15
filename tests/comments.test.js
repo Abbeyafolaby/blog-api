@@ -25,7 +25,6 @@ describe('Comment routes', () => {
   it('prevents non-owner from deleting comment', async () => {
     const owner = await User.create({ name: 'Carol', email: 'carol@example.com', password: 'password123', role: 'reader' });
     const other = await User.create({ name: 'Eve', email: 'eve@example.com', password: 'password123', role: 'reader' });
-    const ownerToken = generateToken({ id: owner._id.toString(), email: owner.email, role: owner.role, name: owner.name });
     const otherToken = generateToken({ id: other._id.toString(), email: other.email, role: other.role, name: other.name });
 
     const post = await Post.create({ title: 'Post2', content: 'Some sufficient content #2', author: owner._id, published: true });
